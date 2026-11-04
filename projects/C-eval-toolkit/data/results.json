@@ -1,0 +1,92 @@
+{
+  "format_version": "c-public-synthetic-results-0.1",
+  "source": "candidate_synthetic",
+  "results": [
+    {
+      "case_id": "syn-01",
+      "status": "ok",
+      "plan": {"kind": "query", "query_id": "line_snapshot", "params": {}},
+      "query_id": "line_snapshot",
+      "table": {
+        "columns": [
+          {"name": "line_no", "type": "string", "nullable": false},
+          {"name": "actual_qty", "type": "decimal", "nullable": false}
+        ],
+        "rows": [["L02", "80"], ["L01", "205"]],
+        "truncated": false,
+        "truncation_reason": null
+      },
+      "sql": "SELECT 1",
+      "counts": {"model_calls": 1, "queries": 2, "corrections": 0},
+      "answer": "synthetic"
+    },
+    {
+      "case_id": "syn-02",
+      "status": "ok",
+      "plan": {"kind": "query", "query_id": "work_order_progress", "params": {"line_id": 2}},
+      "query_id": "work_order_progress",
+      "table": {
+        "columns": [
+          {"name": "order_no", "type": "string", "nullable": false},
+          {"name": "plan_qty", "type": "integer", "nullable": false},
+          {"name": "actual_qty", "type": "integer", "nullable": false},
+          {"name": "quantity_ratio", "type": "decimal", "nullable": true}
+        ],
+        "rows": [],
+        "truncated": false,
+        "truncation_reason": null
+      },
+      "sql": "SELECT 2",
+      "counts": {"model_calls": 1, "queries": 2, "corrections": 0},
+      "answer": "synthetic"
+    },
+    {
+      "case_id": "syn-03",
+      "status": "needs_clarification",
+      "plan": {"kind": "clarify"},
+      "query_id": null,
+      "table": null,
+      "sql": null,
+      "counts": {"model_calls": 1, "queries": 0, "corrections": 0},
+      "answer": "请明确产线。"
+    },
+    {
+      "case_id": "syn-04",
+      "status": "refused",
+      "plan": {"kind": "refuse"},
+      "query_id": null,
+      "table": null,
+      "sql": null,
+      "counts": {"model_calls": 1, "queries": 0, "corrections": 0},
+      "answer": "超出目录范围。"
+    },
+    {
+      "case_id": "syn-05",
+      "status": "ok",
+      "plan": {"kind": "query", "query_id": "line_snapshot", "params": {}},
+      "query_id": "line_snapshot",
+      "table": {
+        "columns": [
+          {"name": "line_no", "type": "string", "nullable": false},
+          {"name": "actual_qty", "type": "decimal", "nullable": false}
+        ],
+        "rows": [["L01", "205"]],
+        "truncated": false,
+        "truncation_reason": null
+      },
+      "sql": "SELECT 3",
+      "counts": {"model_calls": 1, "queries": 2, "corrections": 0},
+      "answer": "synthetic"
+    },
+    {
+      "case_id": "syn-06",
+      "status": "refused",
+      "plan": {"kind": "refuse"},
+      "query_id": null,
+      "table": null,
+      "sql": "SELECT 4",
+      "counts": {"model_calls": 1, "queries": 1, "corrections": 0},
+      "answer": "synthetic"
+    }
+  ]
+}

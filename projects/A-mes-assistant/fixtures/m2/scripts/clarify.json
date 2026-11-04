@@ -1,0 +1,12 @@
+{
+    "replies":  [
+                    {
+                        "content":  "{\"kind\":\"clarify\",\"message\":\"请明确工单所属产线 line_id。\"}",
+                        "usage":  {
+                                      "prompt_tokens":  10,
+                                      "completion_tokens":  5,
+                                      "total_tokens":  15
+                                  }
+                    }
+                ]
+}

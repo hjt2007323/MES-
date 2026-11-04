@@ -1,0 +1,17 @@
+.venv/
+.venv-ui/
+.test-tmp/
+runtime/
+logs/
+reports/
+outputs/
+.env
+.env.*
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.streamlit/
+*.log
+*.sqlite
+*.db
+.DS_Store

@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.1",
+  "run_id": "m1-demo-001",
+  "request_id": "m1-req-001",
+  "case_id": "m1-query",
+  "question": "synthetic M1 named query demonstration",
+  "data_version": "mes-a07-boundary-v1-pending",
+  "reference_time": "2026-11-02T00:00:00+08:00",
+  "timezone": "Asia/Shanghai",
+  "required_capabilities": [],
+  "budget": {
+    "timeout_ms": 30000,
+    "max_model_calls": 0,
+    "max_queries": 2,
+    "max_corrections": 0
+  },
+  "config_id": "m1-cli-v1"
+}

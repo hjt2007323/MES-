@@ -1,0 +1,43 @@
+name: offline
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  a-offline:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: projects/A-mes-assistant
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - name: Install locked UI/runtime dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-ui.lock.txt
+      - name: Question/UI offline regression
+        run: |
+          python -B -m unittest discover -s tests -p "test_question*.py" -v
+          python -B -m unittest discover -s tests -p "test_ui*.py" -v
+      - name: CLI offline demo (no key/DB)
+        run: |
+          python -B -m mes_assistant.question_cli --request fixtures/m2/request.json --mode mock --script fixtures/m2/scripts/success.json --log ../../.test-tmp/ci-success.jsonl
+
+  c-offline:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: projects/C-eval-toolkit
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - name: C offline judging
+        run: |
+          python -B -m unittest discover -s tests -v
+          python -B -m ceval.cli --output-dir ../../.test-tmp/c-offline

@@ -1,0 +1,20 @@
+{
+    "schema_version":  "0.1",
+    "run_id":  "m2-mock-001",
+    "request_id":  "m2q-01",
+    "case_id":  "m2q-01",
+    "question":  "列出各产线当前累计实际产量快照（不按日期）",
+    "data_version":  "mes-a07-boundary-v1-pending",
+    "reference_time":  "2026-11-02T00:00:00+08:00",
+    "timezone":  "Asia/Shanghai",
+    "required_capabilities":  [
+
+                              ],
+    "budget":  {
+                   "timeout_ms":  30000,
+                   "max_model_calls":  2,
+                   "max_queries":  2,
+                   "max_corrections":  1
+               },
+    "config_id":  "m2-mock-v1"
+}
