@@ -4,10 +4,10 @@
   "files": [
     {
       "path": ".github/workflows/offline.yml",
-      "source": "coordination/publication/A07-v2-demo-20261107/ci-followup/offline.yml",
-      "category": "root-ci-environment",
-      "bytes": 2454,
-      "sha256": "c2a62b938382dcbb1e92d85d0b52ad6a6d0162defa17457e0c8f1df3757a440f"
+      "source": "coordination/publication/A07-v2-demo-20261107/ci-step-env/offline.yml",
+      "category": "root-ci-step-environment",
+      "bytes": 2529,
+      "sha256": "5c44d37b14af72ae109f231309d97addb2c7fbd662bc1c601fb4fc440787be16"
     },
     {
       "path": ".gitignore",
@@ -776,9 +776,9 @@
   },
   "acceptance_scope": "offline engineering and basic browser demo; real v2 quality unverified",
   "ci_followup": {
-    "base_manifest_sha256": "f6bbf041577eb28e3bfaa6bccebb353c4da3be52e1d11e911bbdf95c36b9b8c6",
-    "published_base_commit": "f90f03341a4ea8536dd172eafac2a234165e2e1b",
-    "failure_run": 42387073042,
-    "reason": "Use the standard runner temp directory to avoid Windows 8.3 and long user-profile path aliases; original assertions unchanged."
+    "base_manifest_sha256": "32dbd2f441e16d256b0038ff74032034d8959328aab0ebace2df2e66c7e72ce3",
+    "published_base_commit": "00cf9b7e9eee94b9c763d1923baa0ad4c80b18a3",
+    "failure_run": 42387623275,
+    "reason": "Set runner.temp in supported steps.env, not jobs.env; keep the original 119 storage/workspace assertions and product code unchanged."
   }
 }

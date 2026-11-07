@@ -7,10 +7,6 @@ on:
 jobs:
   a-offline:
     runs-on: windows-latest
-    env:
-      TEMP: ${{ runner.temp }}
-      TMP: ${{ runner.temp }}
-      TMPDIR: ${{ runner.temp }}
     defaults:
       run:
         working-directory: projects/A-mes-assistant
@@ -28,8 +24,16 @@ jobs:
       - name: UI offline regression
         run: python -B -m unittest discover -s tests -p "test_ui*.py" -v
       - name: M5 intake offline regression
+        env:
+          TEMP: ${{ runner.temp }}
+          TMP: ${{ runner.temp }}
+          TMPDIR: ${{ runner.temp }}
         run: python -B -m unittest discover -s tests -p "test_intake*.py" -v
       - name: V2 workspace offline regression
+        env:
+          TEMP: ${{ runner.temp }}
+          TMP: ${{ runner.temp }}
+          TMPDIR: ${{ runner.temp }}
         run: python -B -m unittest discover -s tests -p "test_workspace*.py" -v
       - name: CLI offline demo (no key/DB)
         run: python -B -m mes_assistant.question_cli --request fixtures/m2/request.json --mode mock --script fixtures/m2/scripts/success.json --log ../../.test-tmp/ci-success.jsonl
