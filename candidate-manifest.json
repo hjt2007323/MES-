@@ -4,10 +4,10 @@
   "files": [
     {
       "path": ".github/workflows/offline.yml",
-      "source": "execution/B/B-012/revisions/v2.0/adapt/.github/workflows/offline.yml",
-      "category": "b-adapt",
-      "bytes": 2291,
-      "sha256": "abf2d34a9af45e4f0ad005331300f8c7c3bf64e4937a96c512961124c377e81a"
+      "source": "coordination/publication/A07-v2-demo-20261107/ci-followup/offline.yml",
+      "category": "root-ci-environment",
+      "bytes": 2454,
+      "sha256": "c2a62b938382dcbb1e92d85d0b52ad6a6d0162defa17457e0c8f1df3757a440f"
     },
     {
       "path": ".gitignore",
@@ -774,5 +774,11 @@
     "b_ready_sha256": "1d6e0e31c05513a3607d24b6132c00f841700ddb8301514e88576e3be439f161",
     "c_proof_sha256": "a1350d5e56a0f2357ab26848ba67e3077417cb52eee9073ec762fb015c365859"
   },
-  "acceptance_scope": "offline engineering and basic browser demo; real v2 quality unverified"
+  "acceptance_scope": "offline engineering and basic browser demo; real v2 quality unverified",
+  "ci_followup": {
+    "base_manifest_sha256": "f6bbf041577eb28e3bfaa6bccebb353c4da3be52e1d11e911bbdf95c36b9b8c6",
+    "published_base_commit": "f90f03341a4ea8536dd172eafac2a234165e2e1b",
+    "failure_run": 42387073042,
+    "reason": "Use the standard runner temp directory to avoid Windows 8.3 and long user-profile path aliases; original assertions unchanged."
+  }
 }

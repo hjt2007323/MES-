@@ -7,6 +7,10 @@ on:
 jobs:
   a-offline:
     runs-on: windows-latest
+    env:
+      TEMP: ${{ runner.temp }}
+      TMP: ${{ runner.temp }}
+      TMPDIR: ${{ runner.temp }}
     defaults:
       run:
         working-directory: projects/A-mes-assistant
