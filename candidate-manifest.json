@@ -1,0 +1,778 @@
+{
+  "contract_version": "m5-intake-candidate-v1",
+  "baseline": "release/a07-github-v1",
+  "files": [
+    {
+      "path": ".github/workflows/offline.yml",
+      "source": "execution/B/B-012/revisions/v2.0/adapt/.github/workflows/offline.yml",
+      "category": "b-adapt",
+      "bytes": 2291,
+      "sha256": "abf2d34a9af45e4f0ad005331300f8c7c3bf64e4937a96c512961124c377e81a"
+    },
+    {
+      "path": ".gitignore",
+      "source": "execution/B/B-012/revisions/v2.0/adapt/.gitignore",
+      "category": "b-adapt",
+      "bytes": 197,
+      "sha256": "03c56f2b77b967ec5b99ce6a1a8ba061756cb71886c7347e5087a8c690d0b250"
+    },
+    {
+      "path": "LICENSE",
+      "source": "release/a07-github-v1/LICENSE",
+      "category": "baseline",
+      "bytes": 1067,
+      "sha256": "b4c5778d028dec2f73e548b218ef8d394192d1dfb23c479b2439bed09611e7fa"
+    },
+    {
+      "path": "README.md",
+      "source": "coordination/publication/A07-v2-demo-20261107/docs/README.md",
+      "category": "root-reviewed-documentation",
+      "bytes": 7800,
+      "sha256": "686c60ac042191521d1c09f9ad3a57ffd132ab41ae4ff2bec84c4a20c569f062"
+    },
+    {
+      "path": "docs/architecture.md",
+      "source": "coordination/publication/A07-v2-demo-20261107/docs/docs/architecture.md",
+      "category": "root-reviewed-documentation",
+      "bytes": 2962,
+      "sha256": "171900b55039d5cb6897ef89196fc082c37030fbff7d11f299ed3ffcea0c9565"
+    },
+    {
+      "path": "docs/demo.md",
+      "source": "coordination/publication/A07-v2-demo-20261107/docs/docs/demo.md",
+      "category": "root-reviewed-documentation",
+      "bytes": 3170,
+      "sha256": "d768a6cb6b00c7c627db8fdf3c46f928f9c94a01ddbeb9bbdbcf80e7738188fb"
+    },
+    {
+      "path": "docs/source-and-db.md",
+      "source": "coordination/publication/A07-v2-demo-20261107/docs/docs/source-and-db.md",
+      "category": "root-reviewed-documentation",
+      "bytes": 2168,
+      "sha256": "b221883bce17819ecbf7974dd9e87f871b3752469129fd1bfe8f88c9d396429e"
+    },
+    {
+      "path": "projects/A-mes-assistant/README.md",
+      "source": "coordination/publication/A07-v2-demo-20261107/docs/projects/A-mes-assistant/README.md",
+      "category": "root-reviewed-documentation",
+      "bytes": 4843,
+      "sha256": "07d575e3abf4e402cf1f7fddbaae3d1d5eb50d2a46e364bab51604e00b6a2a6d"
+    },
+    {
+      "path": "projects/A-mes-assistant/app.py",
+      "source": "projects/A-mes-assistant/app.py",
+      "category": "public",
+      "bytes": 14742,
+      "sha256": "b03f3c47bf46034c5dd62770aac32c9b9c5665c89f6af89a208e746feaa9b710"
+    },
+    {
+      "path": "projects/A-mes-assistant/docs/intake-demo.md",
+      "source": "projects/A-mes-assistant/docs/intake-demo.md",
+      "category": "public",
+      "bytes": 5584,
+      "sha256": "945134b3597c2ca69a797b50742d58d19ab84e32d59430caddca5c54d5fc59cf"
+    },
+    {
+      "path": "projects/A-mes-assistant/docs/intake-live.md",
+      "source": "coordination/publication/A07-v2-demo-20261107/docs/projects/A-mes-assistant/docs/intake-live.md",
+      "category": "root-reviewed-documentation",
+      "bytes": 3410,
+      "sha256": "6825de0e7bd7a83f205b9aab8fcd01c7453f1f5ab3c3b30541153049e6d08a89"
+    },
+    {
+      "path": "projects/A-mes-assistant/docs/intake-storage.md",
+      "source": "execution/B/B-012/revisions/v2.0/adapt/projects/A-mes-assistant/docs/intake-storage.md",
+      "category": "b-adapt",
+      "bytes": 5907,
+      "sha256": "3e21ca65384d30eab2fa72598f6554fac1f21cb32d60a518e2d5e3a57854b80f"
+    },
+    {
+      "path": "projects/A-mes-assistant/docs/metrics.md",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/docs/metrics.md",
+      "category": "baseline",
+      "bytes": 1368,
+      "sha256": "5fa07a092c7ebe3af698123496bf3fd2c2059d5b4d2ca6d1a994471033d0203d"
+    },
+    {
+      "path": "projects/A-mes-assistant/docs/question-flow.md",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/docs/question-flow.md",
+      "category": "baseline",
+      "bytes": 1009,
+      "sha256": "32a5a447f0dc6fc0840a1fa7b45a2f6343c8050060b5b21b48d314333d3040d7"
+    },
+    {
+      "path": "projects/A-mes-assistant/docs/ui.md",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/docs/ui.md",
+      "category": "baseline",
+      "bytes": 780,
+      "sha256": "2421cff24d2e39622ed7411f2289da53a666469010a1554b6d38e59ed0bca7d2"
+    },
+    {
+      "path": "projects/A-mes-assistant/docs/workspace-v2.md",
+      "source": "coordination/publication/A07-v2-demo-20261107/docs/projects/A-mes-assistant/docs/workspace-v2.md",
+      "category": "root-reviewed-documentation",
+      "bytes": 2505,
+      "sha256": "31c96b9bfd59e3754a738fe2c45924a34fe67e5c635017b4cb99d1840c12dfd6"
+    },
+    {
+      "path": "projects/A-mes-assistant/fixtures/intake/budget-template.json",
+      "source": "execution/B/B-012/revisions/v2.0/adapt/projects/A-mes-assistant/fixtures/intake/budget-template.json",
+      "category": "b-adapt",
+      "bytes": 979,
+      "sha256": "882c97f857bb042c8c130cfcd692bda0273eafb6f8d352a7df0416c21eb63097"
+    },
+    {
+      "path": "projects/A-mes-assistant/fixtures/intake/offline_demo.json",
+      "source": "projects/A-mes-assistant/fixtures/intake/offline_demo.json",
+      "category": "public",
+      "bytes": 352,
+      "sha256": "db8420f8467f87f3c833414d164b18a9084f943edde296b05501e3ac96c63ce2"
+    },
+    {
+      "path": "projects/A-mes-assistant/fixtures/m1/completion-params.json",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/fixtures/m1/completion-params.json",
+      "category": "baseline",
+      "bytes": 19,
+      "sha256": "1f3d4d31f2379d1e87d37ba859ac7eaae2481386a7859fbb151c59cfd3717365"
+    },
+    {
+      "path": "projects/A-mes-assistant/fixtures/m1/downtime-params.json",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/fixtures/m1/downtime-params.json",
+      "category": "baseline",
+      "bytes": 95,
+      "sha256": "c18cf524eaf3a7832db045c75e11802eb5bdee8ef6e216224ac79747252250f2"
+    },
+    {
+      "path": "projects/A-mes-assistant/fixtures/m1/request.json",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/fixtures/m1/request.json",
+      "category": "baseline",
+      "bytes": 473,
+      "sha256": "33719c50ad5ddfd717b9dc2732225324f6a14f3a1d90c948e58ab1fa8c6dff11"
+    },
+    {
+      "path": "projects/A-mes-assistant/fixtures/m1/snapshot-params.json",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/fixtures/m1/snapshot-params.json",
+      "category": "baseline",
+      "bytes": 3,
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    {
+      "path": "projects/A-mes-assistant/fixtures/m2/request-budget.json",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/fixtures/m2/request-budget.json",
+      "category": "baseline",
+      "bytes": 670,
+      "sha256": "01175d11e311b9e31ddd77a32ffbe41699a994e2426321ca8f09fe35d4864873"
+    },
+    {
+      "path": "projects/A-mes-assistant/fixtures/m2/request-timeout.json",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/fixtures/m2/request-timeout.json",
+      "category": "baseline",
+      "bytes": 661,
+      "sha256": "1c0ea8133ee3fd76a5335897ce583c76af4354032f0a650f590833fec7c55cb4"
+    },
+    {
+      "path": "projects/A-mes-assistant/fixtures/m2/request.json",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/fixtures/m2/request.json",
+      "category": "baseline",
+      "bytes": 655,
+      "sha256": "8d8b1051171a31c4634c7f8d96a12517402ebfce767091606faabc10612eeb7c"
+    },
+    {
+      "path": "projects/A-mes-assistant/fixtures/m2/scripts/clarify.json",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/fixtures/m2/scripts/clarify.json",
+      "category": "baseline",
+      "bytes": 466,
+      "sha256": "9ce1b52e2ea4b60d71bd52fbaa2c785954d63701f4c59a50b545d26e7846c0dc"
+    },
+    {
+      "path": "projects/A-mes-assistant/fixtures/m2/scripts/correction.json",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/fixtures/m2/scripts/correction.json",
+      "category": "baseline",
+      "bytes": 808,
+      "sha256": "1ece819189d73d7816f027e62f5e0f4381cf4b8888022a233f3585415df35142"
+    },
+    {
+      "path": "projects/A-mes-assistant/fixtures/m2/scripts/refuse.json",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/fixtures/m2/scripts/refuse.json",
+      "category": "baseline",
+      "bytes": 469,
+      "sha256": "c1c4ff1699466a64711c43107423a3c64a1cab6ae8224f46e2930346134b5eb4"
+    },
+    {
+      "path": "projects/A-mes-assistant/fixtures/m2/scripts/success.json",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/fixtures/m2/scripts/success.json",
+      "category": "baseline",
+      "bytes": 454,
+      "sha256": "d8a65111c24464418af6e501bf7803f2235c61643e891c91b859f8cdb619d431"
+    },
+    {
+      "path": "projects/A-mes-assistant/fixtures/m2/scripts/timeout.json",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/fixtures/m2/scripts/timeout.json",
+      "category": "baseline",
+      "bytes": 497,
+      "sha256": "b43c824913860a75904458d3796542ce92814cedbc7d373e0257cc229f2749ff"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/__init__.py",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/mes_assistant/__init__.py",
+      "category": "baseline",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/fakes.py",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/mes_assistant/fakes.py",
+      "category": "baseline",
+      "bytes": 5055,
+      "sha256": "a560af5c891f89a1c696e9b51384a85d355217ba5521935e0e7fdc5d7f3fe4c5"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/intake_batch.py",
+      "source": "projects/A-mes-assistant/mes_assistant/intake_batch.py",
+      "category": "public",
+      "bytes": 18435,
+      "sha256": "00b2d201d667d83c3982282fb844682dae377fe7029b5d23512dc96f82e83967"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/intake_extraction.py",
+      "source": "projects/A-mes-assistant/mes_assistant/intake_extraction.py",
+      "category": "public",
+      "bytes": 13227,
+      "sha256": "3655b85ad60a3e543a97be7a9572fd10b26f83884cf7df06ffdffe242c4e132f"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/intake_runtime.py",
+      "source": "projects/A-mes-assistant/mes_assistant/intake_runtime.py",
+      "category": "public",
+      "bytes": 9402,
+      "sha256": "d84069dde5d61cba49baf16ed698c69f031aa39c7232f54ead848b5b36ced262"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/intake_store.py",
+      "source": "projects/A-mes-assistant/mes_assistant/intake_store.py",
+      "category": "public",
+      "bytes": 22600,
+      "sha256": "2e870ed8551dfeb25618bb2a9775197831f45f58cc3cfa1507edcaac9dada57c"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/intake_ui.py",
+      "source": "projects/A-mes-assistant/mes_assistant/intake_ui.py",
+      "category": "public",
+      "bytes": 17332,
+      "sha256": "87523f675e3beed9ef6edc50f5c9242d9b29af1718a9fc862415a6b061a59a41"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/llm_client.py",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/mes_assistant/llm_client.py",
+      "category": "baseline",
+      "bytes": 17764,
+      "sha256": "cab26c63173cd6df07d3f2da6be126aced59cd4440a8a3268aff1fbeacf48c4c"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/model_factory.py",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/mes_assistant/model_factory.py",
+      "category": "baseline",
+      "bytes": 1767,
+      "sha256": "daf15acc754fb924c1a7553b4943ea4cfcb3e51c084649d319ea171c514a30f9"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/mysql_tools.py",
+      "source": "projects/A-mes-assistant/mes_assistant/mysql_tools.py",
+      "category": "public",
+      "bytes": 44000,
+      "sha256": "62673a03c4bd221d8e0587c262b6178f551556791f3d04f065e3c034f7d46a5f"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/query_catalog.py",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/mes_assistant/query_catalog.py",
+      "category": "baseline",
+      "bytes": 6726,
+      "sha256": "7b432e62d401183cea921df56946b7dbdfd2a0950862f1b1fb4c5ef143b8bfbc"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/query_planner.py",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/mes_assistant/query_planner.py",
+      "category": "baseline",
+      "bytes": 12563,
+      "sha256": "e81ad684cfa136de39a7024580a998a7bec2b215ec197374f65ceac231db9db6"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/query_runtime.py",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/mes_assistant/query_runtime.py",
+      "category": "baseline",
+      "bytes": 20704,
+      "sha256": "ab2883fcc71b6c56dee985a2bb548285255b6c28fb33b45a9475e39ed761c16b"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/question_cli.py",
+      "source": "projects/A-mes-assistant/mes_assistant/question_cli.py",
+      "category": "public",
+      "bytes": 6788,
+      "sha256": "447dcddafbea31e9de06ebfd20f89b325c1b8a8698a278a25fb97718b2de99b9"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/question_fakes.py",
+      "source": "projects/A-mes-assistant/mes_assistant/question_fakes.py",
+      "category": "public",
+      "bytes": 6648,
+      "sha256": "8bb81487fd018ad8668fb47ffb6292be52acd08496217c4ab4fa2e0e14414f44"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/question_runtime.py",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/mes_assistant/question_runtime.py",
+      "category": "baseline",
+      "bytes": 21986,
+      "sha256": "2777b852d053ebb00ab98dd6cf7446270c7dcd78b1b172b0abb40fed50e076b2"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/semantics.py",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/mes_assistant/semantics.py",
+      "category": "baseline",
+      "bytes": 6306,
+      "sha256": "233b99232c4d20738bff30087bbfeb25608402f18a777c0e95317945fc367df9"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/service.py",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/mes_assistant/service.py",
+      "category": "baseline",
+      "bytes": 18712,
+      "sha256": "1b905e58ca845446d30c29b59ba1178984be5e9867cbbaf9a8ed742e04363b1a"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/structured_log.py",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/mes_assistant/structured_log.py",
+      "category": "baseline",
+      "bytes": 1265,
+      "sha256": "0d588053e2b10550f44f8763da20b6d6da82ab9b8feee4394cced99d84a1eb01"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/ui_presenter.py",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/mes_assistant/ui_presenter.py",
+      "category": "baseline",
+      "bytes": 12528,
+      "sha256": "82a469cf7f9c43cc28388cee93ab7c2feedfa233f956977079c5f7e9a960d05d"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/workspace_assistant.py",
+      "source": "projects/A-mes-assistant/mes_assistant/workspace_assistant.py",
+      "category": "public",
+      "bytes": 27926,
+      "sha256": "87a3ecb0b889eee400e247eae7af280efa7a58e0d82cd6faa1bfa95821480758"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/workspace_cli.py",
+      "source": "projects/A-mes-assistant/mes_assistant/workspace_cli.py",
+      "category": "public",
+      "bytes": 1456,
+      "sha256": "b0db2e7c471ec5e7fae20f34def2539cc969a766e3fd7bd02d5a125cdce74671"
+    },
+    {
+      "path": "projects/A-mes-assistant/mes_assistant/workspace_ui.py",
+      "source": "projects/A-mes-assistant/mes_assistant/workspace_ui.py",
+      "category": "public",
+      "bytes": 9357,
+      "sha256": "0311cda6a9a813dd531ff2fb39bf25a7d33199a67eaf1bac3a969bc0c8fd94c8"
+    },
+    {
+      "path": "projects/A-mes-assistant/requirements-ui.lock.txt",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/requirements-ui.lock.txt",
+      "category": "baseline",
+      "bytes": 631,
+      "sha256": "f161511b7b30a95da77353631df2c9fff6f9c0d6e2ed5025e246fc656f37bcac"
+    },
+    {
+      "path": "projects/A-mes-assistant/requirements-ui.txt",
+      "source": "release/a07-github-v1/projects/A-mes-assistant/requirements-ui.txt",
+      "category": "baseline",
+      "bytes": 20,
+      "sha256": "87a6f7dd994187c462df4b243a3660aa2a7fac96f4ba47946c4ef23dc448ce95"
+    },
+    {
+      "path": "projects/A-mes-assistant/tests/fixtures/intake_live_failure_regressions.json",
+      "source": "projects/A-mes-assistant/tests/fixtures/intake_live_failure_regressions.json",
+      "category": "public",
+      "bytes": 2957,
+      "sha256": "664fd16a58c006c3b41bd3a7e963f61a28a9c0741e9d4f7884abc4858ac7c06e"
+    },
+    {
+      "path": "projects/A-mes-assistant/tests/test_intake_app.py",
+      "source": "projects/A-mes-assistant/tests/test_intake_app.py",
+      "category": "public",
+      "bytes": 19334,
+      "sha256": "31dbde6d2b2f392781d5e7629a499845e04087378c5b65bff5b4443924fe39d9"
+    },
+    {
+      "path": "projects/A-mes-assistant/tests/test_intake_extraction.py",
+      "source": "projects/A-mes-assistant/tests/test_intake_extraction.py",
+      "category": "public",
+      "bytes": 12169,
+      "sha256": "5b6091b590cd6d6e799d07fa41fdf1e75f49d78854e2c277cca36128cbed2784"
+    },
+    {
+      "path": "projects/A-mes-assistant/tests/test_intake_runtime.py",
+      "source": "projects/A-mes-assistant/tests/test_intake_runtime.py",
+      "category": "public",
+      "bytes": 6001,
+      "sha256": "1f18229c07332d3d3bef6c8fc8c35ffc4fc84f57fc27c778effe4025ac6cdfb9"
+    },
+    {
+      "path": "projects/A-mes-assistant/tests/test_intake_store.py",
+      "source": "projects/A-mes-assistant/tests/test_intake_store.py",
+      "category": "public",
+      "bytes": 34754,
+      "sha256": "d5f353f19ba1893835f8fa1b216fe29cfd478f81ea32138fc78d4a06d2d56464"
+    },
+    {
+      "path": "projects/A-mes-assistant/tests/test_question_app.py",
+      "source": "projects/A-mes-assistant/tests/test_question_app.py",
+      "category": "public",
+      "bytes": 7897,
+      "sha256": "d60d95f719456f55f0267807b4e2d3d56faa15e1f08b4788d9c1def050b84c38"
+    },
+    {
+      "path": "projects/A-mes-assistant/tests/test_question_cli.py",
+      "source": "projects/A-mes-assistant/tests/test_question_cli.py",
+      "category": "public",
+      "bytes": 7376,
+      "sha256": "3d3a8cc7810e04a9c1b056077b85ae1ec5e2122711a270cff976658d9947b211"
+    },
+    {
+      "path": "projects/A-mes-assistant/tests/test_question_runtime.py",
+      "source": "projects/A-mes-assistant/tests/test_question_runtime.py",
+      "category": "public",
+      "bytes": 22711,
+      "sha256": "dfaa4ff58b73d2c1a5515b6ede6305fd34b86fc9113dbd73560f6f0a2b137c1e"
+    },
+    {
+      "path": "projects/A-mes-assistant/tests/test_ui_presenter.py",
+      "source": "projects/A-mes-assistant/tests/test_ui_presenter.py",
+      "category": "public",
+      "bytes": 14549,
+      "sha256": "a6af855d5786e2a20f7c366e17bbdb4b42045589b9e79c213daf27e11d967785"
+    },
+    {
+      "path": "projects/A-mes-assistant/tests/test_workspace.py",
+      "source": "projects/A-mes-assistant/tests/test_workspace.py",
+      "category": "public",
+      "bytes": 9779,
+      "sha256": "dd21090b37e409492edbc00134d616a786197a80f36fbcba2d38adec932a16c9"
+    },
+    {
+      "path": "projects/A-mes-assistant/tests/test_workspace_app.py",
+      "source": "projects/A-mes-assistant/tests/test_workspace_app.py",
+      "category": "public",
+      "bytes": 3876,
+      "sha256": "6b489bf20321eb71aac0b9a0a4e7b0668b0abe2ebdfd55a43b6ab2097da94dec"
+    },
+    {
+      "path": "projects/C-eval-toolkit/.gitignore",
+      "source": "release/a07-github-v1/projects/C-eval-toolkit/.gitignore",
+      "category": "baseline",
+      "bytes": 28,
+      "sha256": "58f3a7f8633bfb9029e15b710f9154c6f942d4143695c0cef611271b1429394c"
+    },
+    {
+      "path": "projects/C-eval-toolkit/README.md",
+      "source": "release/a07-github-v1/projects/C-eval-toolkit/README.md",
+      "category": "baseline",
+      "bytes": 3022,
+      "sha256": "618ecd08fc2cd9c6960dbe33ce819028d56e9409352bc84e31f86e3efde8e972"
+    },
+    {
+      "path": "projects/C-eval-toolkit/ceval/__init__.py",
+      "source": "release/a07-github-v1/projects/C-eval-toolkit/ceval/__init__.py",
+      "category": "baseline",
+      "bytes": 75,
+      "sha256": "e63ddf41b9d88f1a8031d071b5b3dc5388794e0ae5536724f6ed345e80a4f5ba"
+    },
+    {
+      "path": "projects/C-eval-toolkit/ceval/cli.py",
+      "source": "release/a07-github-v1/projects/C-eval-toolkit/ceval/cli.py",
+      "category": "baseline",
+      "bytes": 6309,
+      "sha256": "75921a0e3bd081df96937fd01536bb1334c49d4d864d5b0967368a3760ebf943"
+    },
+    {
+      "path": "projects/C-eval-toolkit/ceval/compare.py",
+      "source": "release/a07-github-v1/projects/C-eval-toolkit/ceval/compare.py",
+      "category": "baseline",
+      "bytes": 4357,
+      "sha256": "b38e84431540ac98b5bd6224fb4b9c5214ff66ddbc175cbbcdb835ece16c2adf"
+    },
+    {
+      "path": "projects/C-eval-toolkit/ceval/quality.py",
+      "source": "release/a07-github-v1/projects/C-eval-toolkit/ceval/quality.py",
+      "category": "baseline",
+      "bytes": 4792,
+      "sha256": "5ce2d376b1efe5851e98201f0e4708c4786aee0551a82ee23a268491d88df710"
+    },
+    {
+      "path": "projects/C-eval-toolkit/contracts/__init__.py",
+      "source": "projects/C-eval-toolkit/contracts/__init__.py",
+      "category": "public",
+      "bytes": 174,
+      "sha256": "22cda921cd0a95d9177617b51beb59b6e4948fc81b23d16f7db9d6cb06bb7528"
+    },
+    {
+      "path": "projects/C-eval-toolkit/contracts/validation.py",
+      "source": "projects/C-eval-toolkit/contracts/validation.py",
+      "category": "public",
+      "bytes": 27056,
+      "sha256": "cde884c3540f19f35a513f71bba04e274b80cb849cd06700a2a1036a20952735"
+    },
+    {
+      "path": "projects/C-eval-toolkit/data/cases.json",
+      "source": "release/a07-github-v1/projects/C-eval-toolkit/data/cases.json",
+      "category": "baseline",
+      "bytes": 3299,
+      "sha256": "00f2e3687e16ea9b3a39f57cb8a0eccfec3ed1779aa6ff4393532313c8d6de6d"
+    },
+    {
+      "path": "projects/C-eval-toolkit/data/results.json",
+      "source": "release/a07-github-v1/projects/C-eval-toolkit/data/results.json",
+      "category": "baseline",
+      "bytes": 2866,
+      "sha256": "b92e53070b6e94dcf198f02d90f2726ae590a10d560630938bed73444f5d0446"
+    },
+    {
+      "path": "projects/C-eval-toolkit/docs/intake-live-eval.md",
+      "source": "projects/C-eval-toolkit/docs/intake-live-eval.md",
+      "category": "public",
+      "bytes": 8126,
+      "sha256": "998c4967b33dd7ad89a01eff0b9be88e35a34b46c77bab96e2ea116f057d6d27"
+    },
+    {
+      "path": "projects/C-eval-toolkit/docs/intake-pilot-001.json",
+      "source": "projects/C-eval-toolkit/docs/intake-pilot-001.json",
+      "category": "public",
+      "bytes": 3711,
+      "sha256": "086db35c287276690fe9b80f84d50273139579be8d07ee923d76d60fa01ed378"
+    },
+    {
+      "path": "projects/C-eval-toolkit/docs/intake-pilot-001.md",
+      "source": "projects/C-eval-toolkit/docs/intake-pilot-001.md",
+      "category": "public",
+      "bytes": 1543,
+      "sha256": "ffcd52cd68b15c17de44ca01918b5a132e574f3b1e9ba00ab99fcaf93ec8a666"
+    },
+    {
+      "path": "projects/C-eval-toolkit/docs/intake-pilot-002.json",
+      "source": "projects/C-eval-toolkit/docs/intake-pilot-002.json",
+      "category": "public",
+      "bytes": 1876,
+      "sha256": "b8cf175f0fdc00c5edda36eaeb0fc35a409663c4656b655b4626287f17eee45f"
+    },
+    {
+      "path": "projects/C-eval-toolkit/docs/intake-pilot-002.md",
+      "source": "projects/C-eval-toolkit/docs/intake-pilot-002.md",
+      "category": "public",
+      "bytes": 1349,
+      "sha256": "7ce859291420f1ee5b3696fd18918dbaf8fe3e66905ad08007d68206a610479a"
+    },
+    {
+      "path": "projects/C-eval-toolkit/docs/intake-public-summary.json",
+      "source": "projects/C-eval-toolkit/docs/intake-public-summary.json",
+      "category": "public",
+      "bytes": 11565,
+      "sha256": "b6bd196d7d609a6f57a625950db1b6caf87e28b1d9a529d6ea7d90c6ae78ccb0"
+    },
+    {
+      "path": "projects/C-eval-toolkit/docs/intake-public-summary.md",
+      "source": "projects/C-eval-toolkit/docs/intake-public-summary.md",
+      "category": "public",
+      "bytes": 4967,
+      "sha256": "76666004dbe7981ae850912091c2338aa95be991ea92697f1f16ac0142628878"
+    },
+    {
+      "path": "projects/C-eval-toolkit/docs/intake-retest-eval.md",
+      "source": "projects/C-eval-toolkit/docs/intake-retest-eval.md",
+      "category": "public",
+      "bytes": 1939,
+      "sha256": "5a4ed38f7d47b78e6fdb5559d6e95fbfd7e330111f14b4c2efa514426130b6ee"
+    },
+    {
+      "path": "projects/C-eval-toolkit/docs/public-summary.json",
+      "source": "release/a07-github-v1/projects/C-eval-toolkit/docs/public-summary.json",
+      "category": "baseline",
+      "bytes": 2738,
+      "sha256": "5ad78c3d93eec38922896db4772b46a44817b62a1fce77a1da5b15f9bab1b5b3"
+    },
+    {
+      "path": "projects/C-eval-toolkit/docs/public-summary.md",
+      "source": "release/a07-github-v1/projects/C-eval-toolkit/docs/public-summary.md",
+      "category": "baseline",
+      "bytes": 2898,
+      "sha256": "208c21be289cc0e04907318c20d9fe063e25627e126a2fde357e5672761b0ef7"
+    },
+    {
+      "path": "projects/C-eval-toolkit/docs/v2-evaluation.md",
+      "source": "projects/C-eval-toolkit/docs/v2-evaluation.md",
+      "category": "public",
+      "bytes": 2353,
+      "sha256": "00016484f8c270638229f552cfa79768df98bc3625c758a376b4e63bd7a83389"
+    },
+    {
+      "path": "projects/C-eval-toolkit/evaluation/__init__.py",
+      "source": "projects/C-eval-toolkit/evaluation/__init__.py",
+      "category": "public",
+      "bytes": 130,
+      "sha256": "ba79e2c7bb504cea00f5c8b3fdf45238108cb766054964454d400891fb845523"
+    },
+    {
+      "path": "projects/C-eval-toolkit/evaluation/__main__.py",
+      "source": "projects/C-eval-toolkit/evaluation/__main__.py",
+      "category": "public",
+      "bytes": 10192,
+      "sha256": "09055d96fe594af2bb2721829e574fad4ef715c2cd563ef8079052cb7d38cbf4"
+    },
+    {
+      "path": "projects/C-eval-toolkit/evaluation/a07_adapter.py",
+      "source": "projects/C-eval-toolkit/evaluation/a07_adapter.py",
+      "category": "public",
+      "bytes": 2396,
+      "sha256": "3ff8d80ea67ed2ae1b347d44191d599026f0a241dc0e9b84280e6f76834933c2"
+    },
+    {
+      "path": "projects/C-eval-toolkit/evaluation/a07_question_adapter.py",
+      "source": "projects/C-eval-toolkit/evaluation/a07_question_adapter.py",
+      "category": "public",
+      "bytes": 15194,
+      "sha256": "ac735321fb230969c6defab2f378c21a0a6bf272c3ef4c189c421b7a8aa186d5"
+    },
+    {
+      "path": "projects/C-eval-toolkit/evaluation/compare.py",
+      "source": "projects/C-eval-toolkit/evaluation/compare.py",
+      "category": "public",
+      "bytes": 4938,
+      "sha256": "cad184fb87739b6dfa2e8e085ccc78c27bde8d55024d1ebc020c7a3f3ba45ae2"
+    },
+    {
+      "path": "projects/C-eval-toolkit/evaluation/fixture_adapter.py",
+      "source": "projects/C-eval-toolkit/evaluation/fixture_adapter.py",
+      "category": "public",
+      "bytes": 556,
+      "sha256": "9e915c7c60f9e13ae0d102c63220eb151815334a52a1c3db6c327d2666f0d1b7"
+    },
+    {
+      "path": "projects/C-eval-toolkit/evaluation/intake_baseline.py",
+      "source": "projects/C-eval-toolkit/evaluation/intake_baseline.py",
+      "category": "public",
+      "bytes": 2607,
+      "sha256": "4dd998735e740037ea2b977f6a9f270d14bb1eec8fe8477cfe6c3034c31d5591"
+    },
+    {
+      "path": "projects/C-eval-toolkit/evaluation/intake_eval.py",
+      "source": "projects/C-eval-toolkit/evaluation/intake_eval.py",
+      "category": "public",
+      "bytes": 23196,
+      "sha256": "9892a9c80d0b61ad27b7db566c7534f991ee0ef020ac8f04dcc0ffbe620bf382"
+    },
+    {
+      "path": "projects/C-eval-toolkit/evaluation/intake_live_eval.py",
+      "source": "projects/C-eval-toolkit/evaluation/intake_live_eval.py",
+      "category": "public",
+      "bytes": 39235,
+      "sha256": "2cd26c8d858db1e137522d1fb5d64da55f286801deeeef15014c54dfe78ba6d4"
+    },
+    {
+      "path": "projects/C-eval-toolkit/evaluation/intake_retest_eval.py",
+      "source": "projects/C-eval-toolkit/evaluation/intake_retest_eval.py",
+      "category": "public",
+      "bytes": 15773,
+      "sha256": "97d53ceafffeb7452751a14765de21936a6156fa4b741b3d8f65adbb2d44bb08"
+    },
+    {
+      "path": "projects/C-eval-toolkit/evaluation/quality_cli.py",
+      "source": "projects/C-eval-toolkit/evaluation/quality_cli.py",
+      "category": "public",
+      "bytes": 2472,
+      "sha256": "5cdf80676b20563a0318b011fe2490bab851873d77cacb1e950bc12938822bd4"
+    },
+    {
+      "path": "projects/C-eval-toolkit/evaluation/quality_reporting.py",
+      "source": "projects/C-eval-toolkit/evaluation/quality_reporting.py",
+      "category": "public",
+      "bytes": 19568,
+      "sha256": "378d19bd499d4815a003a766312ec3269864cc4c0daf718fc0565ad8d8960b3d"
+    },
+    {
+      "path": "projects/C-eval-toolkit/evaluation/quality_runner.py",
+      "source": "projects/C-eval-toolkit/evaluation/quality_runner.py",
+      "category": "public",
+      "bytes": 37672,
+      "sha256": "aee93295112c57188155e41930941772eacc7588e4e95e95a98b6bf725a3247a"
+    },
+    {
+      "path": "projects/C-eval-toolkit/evaluation/reporting.py",
+      "source": "projects/C-eval-toolkit/evaluation/reporting.py",
+      "category": "public",
+      "bytes": 7762,
+      "sha256": "1b5d8501781b62203159c6a752d983adbc5873f38fa7a4ba3a9249c7dad217f3"
+    },
+    {
+      "path": "projects/C-eval-toolkit/evaluation/runner.py",
+      "source": "projects/C-eval-toolkit/evaluation/runner.py",
+      "category": "public",
+      "bytes": 14718,
+      "sha256": "01c20306d7a23f11ee615cd2b0b17b2abff6bd912f087a9b5a8e6bd4d1508016"
+    },
+    {
+      "path": "projects/C-eval-toolkit/evaluation/v2_eval.py",
+      "source": "projects/C-eval-toolkit/evaluation/v2_eval.py",
+      "category": "public",
+      "bytes": 8039,
+      "sha256": "119c0c8675759bb59265cc0663db610726be9b4351196633fd2c1be43c151da9"
+    },
+    {
+      "path": "projects/C-eval-toolkit/tests/fixtures/cases-a07-intake-v1.json",
+      "source": "projects/C-eval-toolkit/tests/fixtures/cases-a07-intake-v1.json",
+      "category": "public",
+      "bytes": 3881,
+      "sha256": "c9f4001d87a9e4b5e0a6f44aa308e4f0e84ca17041a87972bd1f646480ca84ce"
+    },
+    {
+      "path": "projects/C-eval-toolkit/tests/fixtures/v2-cases-v1.json",
+      "source": "projects/C-eval-toolkit/tests/fixtures/v2-cases-v1.json",
+      "category": "public",
+      "bytes": 4155,
+      "sha256": "d26b4a690bb7e4ae96f66b1e8a56323895e8172cc94e01a7f471b8f021771e04"
+    },
+    {
+      "path": "projects/C-eval-toolkit/tests/test_intake_live_eval.py",
+      "source": "projects/C-eval-toolkit/tests/test_intake_live_eval.py",
+      "category": "public",
+      "bytes": 16659,
+      "sha256": "998cec94755e57fbf3a8a680e42c9ceda415438ac3dc01206fcd5d838c6a1ef0"
+    },
+    {
+      "path": "projects/C-eval-toolkit/tests/test_offline.py",
+      "source": "release/a07-github-v1/projects/C-eval-toolkit/tests/test_offline.py",
+      "category": "baseline",
+      "bytes": 7475,
+      "sha256": "9179e8f15d008a3ee7003e0060db877ba22e93a44ef8643c4d2f9f850ca91fb0"
+    },
+    {
+      "path": "projects/C-eval-toolkit/tests/test_v2_eval.py",
+      "source": "projects/C-eval-toolkit/tests/test_v2_eval.py",
+      "category": "public",
+      "bytes": 4590,
+      "sha256": "42486640c2c7c054a2cb35329e11b48319df17ccfbc07ed3de0def600a05967f"
+    },
+    {
+      "path": "projects/C-eval-toolkit/tools/check_intake_public_cli.py",
+      "source": "projects/C-eval-toolkit/tools/check_intake_public_cli.py",
+      "category": "public",
+      "bytes": 9284,
+      "sha256": "50046b513d727b3300b5ecbed1c8c24522f929f0f8a00c9d5b582fcafe7d13bc"
+    }
+  ],
+  "file_count": 109,
+  "skipped": [],
+  "editorial_base": {
+    "candidate": "release/a07-v2-candidate-v2.0",
+    "manifest_sha256": "246e21d093092f949ebe7881bb05ee95dd14bdd1b87f50a612d36224a508ceaa",
+    "b_ready_sha256": "1d6e0e31c05513a3607d24b6132c00f841700ddb8301514e88576e3be439f161",
+    "c_proof_sha256": "a1350d5e56a0f2357ab26848ba67e3077417cb52eee9073ec762fb015c365859"
+  },
+  "acceptance_scope": "offline engineering and basic browser demo; real v2 quality unverified"
+}

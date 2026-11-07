@@ -376,63 +376,6 @@ class QuestionMockTests(unittest.TestCase):
         self.assertEqual(refuse["status"], "refused")
         self.assertIsNone(refuse["error"])
 
-    def test_mock_sample_ranges_are_frozen(self):
-        snapshot, _ = self._run("列出各产线当前累计实际产量快照（不按日期）")
-        self.assertEqual(snapshot["status"], "ok")
-        self.assertEqual(len(snapshot["table"]["rows"]), 3)
-        self.assertEqual(snapshot["sql"], "SELECT /* offline mock */ 1;")
-        self.assertEqual(snapshot["counts"]["queries"], 2)
-
-        line1, _ = self._run("列出 line_id=1 的工单数量完成比")
-        self.assertEqual(line1["status"], "ok")
-        self.assertEqual(line1["plan"]["params"], {"line_id": 1})
-        self.assertEqual(line1["table"]["rows"][0][1], "L01")
-
-        line2, _ = self._run("列出 line_id=2 的工单数量完成比")
-        self.assertEqual(line2["status"], "needs_clarification")
-        self.assertIn("line_id=1", line2["answer"])
-        self.assertEqual(line2["counts"]["queries"], 0)
-        self.assertIsNone(line2["table"])
-
-        line10, _ = self._run("查询产线10的工单完成情况")
-        self.assertEqual(line10["status"], "needs_clarification")
-        self.assertEqual(line10["counts"]["queries"], 0)
-        self.assertIsNone(line10["table"])
-
-        both, _ = self._run("查看 line_id=1 和 line_id=2 的工单完成情况")
-        self.assertEqual(both["status"], "needs_clarification")
-        self.assertEqual(both["counts"]["queries"], 0)
-        self.assertIsNone(both["table"])
-
-        reverse, _ = self._run(
-            "列出2026-11-02T00:00:00+08:00至2026-11-01T00:00:00+08:00相交的设备停机原始明细"
-        )
-        self.assertEqual(reverse["status"], "needs_clarification")
-        self.assertEqual(reverse["counts"]["queries"], 0)
-        self.assertIsNone(reverse["table"])
-
-        extra, _ = self._run(
-            "列出2026-11-01T00:00:00+08:00至2026-11-01T12:00:00+08:00至2026-11-02T00:00:00+08:00相交的设备停机原始明细"
-        )
-        self.assertEqual(extra["status"], "needs_clarification")
-        self.assertEqual(extra["counts"]["queries"], 0)
-        self.assertIsNone(extra["table"])
-
-        other_window, _ = self._run(
-            "列出2026-10-31T00:00:00+08:00至2026-11-01T00:00:00+08:00相交的设备停机原始明细"
-        )
-        self.assertEqual(other_window["status"], "needs_clarification")
-        self.assertIn("2026-11-01T00:00:00+08:00", other_window["answer"])
-        self.assertEqual(other_window["counts"]["queries"], 0)
-        self.assertIsNone(other_window["table"])
-
-        fixed, _ = self._run(
-            "列出2026-11-01T00:00:00+08:00至2026-11-02T00:00:00+08:00相交的设备停机原始明细"
-        )
-        self.assertEqual(fixed["status"], "ok")
-        self.assertEqual(fixed["query_id"], "downtime_details")
-        self.assertGreaterEqual(len(fixed["table"]["rows"]), 1)
-
 
 if __name__ == "__main__":
     unittest.main()

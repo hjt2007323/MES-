@@ -1,0 +1,82 @@
+{
+  "fixture_version": "m5-pilot-001-failure-reconstruction-v1",
+  "label": "reconstructed_test_double",
+  "note": "Reconstructed from saved pilot-001 draft fields/issues and input text; not a byte replay of the original HTTP response. No C answers or scoring data.",
+  "cases": [
+    {
+      "case_id": "i07",
+      "text": "今天2号机8:12卡料停机，结束时间没记。",
+      "saved_issues": ["AMBIGUOUS_CONTEXT"],
+      "model_action": {"kind": "clarify", "issue": "AMBIGUOUS_CONTEXT"},
+      "expected_issue": "MISSING_END_TIME",
+      "expected_state": "needs_clarification",
+      "expected_terminal": false
+    },
+    {
+      "case_id": "i08",
+      "text": "今天8:12到8:25卡料停机，可能是1号机或2号机。",
+      "saved_issues": ["MULTIPLE_EVENTS"],
+      "model_action": {"kind": "clarify", "issue": "MULTIPLE_EVENTS"},
+      "expected_issue": "MISSING_MACHINE_NO",
+      "expected_state": "needs_clarification",
+      "expected_terminal": false
+    },
+    {
+      "case_id": "same-device-two-events",
+      "text": "今天M01 8:00到8:10故障停机；一号机9:00到9:10卡料停机。",
+      "saved_issues": [],
+      "model_action": {
+        "kind": "extract",
+        "fields": {
+          "machine_no": {"value": "M01", "quote": "M01"},
+          "start_time": {
+            "value": "2026-11-04T08:00:00+08:00",
+            "quote": "8:00"
+          },
+          "end_time": {
+            "value": "2026-11-04T08:10:00+08:00",
+            "quote": "8:10"
+          },
+          "reason": {"value": "故障", "quote": "故障"},
+          "order_id": {"value": null, "quote": null}
+        }
+      },
+      "expected_issue": "MULTIPLE_EVENTS",
+      "expected_state": "needs_clarification",
+      "expected_terminal": true
+    },
+    {
+      "case_id": "ambiguous-device-repeat",
+      "text": "今天8:12到8:25卡料停机，可能是1号机或2号机；再次核对停机时段是8:12到8:25。",
+      "saved_issues": ["MULTIPLE_EVENTS"],
+      "model_action": {"kind": "clarify", "issue": "MULTIPLE_EVENTS"},
+      "expected_issue": "MISSING_MACHINE_NO",
+      "expected_state": "needs_clarification",
+      "expected_terminal": false
+    },
+    {
+      "case_id": "i09",
+      "text": "今天M01 8:00到8:10故障停机；M02 9:00到9:10卡料停机。",
+      "saved_issues": [],
+      "model_action": {
+        "kind": "extract",
+        "fields": {
+          "machine_no": {"value": "M01", "quote": "M01"},
+          "start_time": {
+            "value": "2026-11-04T08:00:00+08:00",
+            "quote": "8:00"
+          },
+          "end_time": {
+            "value": "2026-11-04T08:10:00+08:00",
+            "quote": "8:10"
+          },
+          "reason": {"value": "故障", "quote": "故障"},
+          "order_id": {"value": null, "quote": null}
+        }
+      },
+      "expected_issue": "MULTIPLE_EVENTS",
+      "expected_state": "needs_clarification",
+      "expected_terminal": true
+    }
+  ]
+}

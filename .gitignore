@@ -13,5 +13,9 @@ __pycache__/
 .streamlit/
 *.log
 *.sqlite
+*.sqlite3
 *.db
+execution/
+coordination/
+release/
 .DS_Store

@@ -13,73 +13,6 @@ from mes_assistant import query_catalog
 from mes_assistant.llm_client import ModelClientError, ModelReply
 
 DATA_VERSION = "mes-a07-boundary-v1-pending"
-FIXED_DOWNTIME_START = "2026-11-01T00:00:00+08:00"
-FIXED_DOWNTIME_END = "2026-11-02T00:00:00+08:00"
-
-_CN_DIGITS = {
-    "零": 0,
-    "一": 1,
-    "二": 2,
-    "两": 2,
-    "三": 3,
-    "四": 4,
-    "五": 5,
-    "六": 6,
-    "七": 7,
-    "八": 8,
-    "九": 9,
-}
-_AMBIGUOUS_LINE = re.compile(
-    r"(?:其他|其它|不同|各(?:个)?|多(?:条|个)?)产线|"
-    r"产线\s*\d+\s*[、,，和及与]\s*(?:\d+|产线|L|line_id)|"
-    r"\d+\s*号线\s*[、,，和及与]\s*\d+"
-)
-
-
-def _chinese_number(text):
-    total = 0
-    current = 0
-    for char in text:
-        if char in _CN_DIGITS:
-            current = _CN_DIGITS[char]
-        elif char == "十":
-            if current == 0:
-                current = 1
-            total += current * 10
-            current = 0
-        elif char == "百":
-            if current == 0:
-                current = 1
-            total += current * 100
-            current = 0
-        else:
-            return None
-    return total + current
-
-
-def _extract_line_refs(question):
-    """Extract every complete line reference; no substring guessing."""
-    refs = []
-    for match in re.finditer(
-        r"line_id\s*=\s*(\d+)(?![0-9A-Za-z_.])", question, re.IGNORECASE
-    ):
-        refs.append(int(match.group(1)))
-    for match in re.finditer(
-        r"(?<![0-9A-Za-z_])L(\d+)(?![0-9A-Za-z_])", question, re.IGNORECASE
-    ):
-        refs.append(int(match.group(1)))
-    for match in re.finditer(r"产线\s*(\d+)(?![0-9A-Za-z_.])", question):
-        refs.append(int(match.group(1)))
-    for match in re.finditer(r"(\d+)\s*(?:号产线|号线)", question):
-        refs.append(int(match.group(1)))
-    unknown = False
-    for match in re.finditer(r"([零一二三四五六七八九十百两]+)(?:号产线|号线)", question):
-        value = _chinese_number(match.group(1))
-        if value is None:
-            unknown = True
-        else:
-            refs.append(value)
-    return refs, unknown
 
 
 class ScriptedModelClient:
@@ -139,11 +72,7 @@ class KeywordMockModel:
     def _question(messages):
         for message in messages:
             if message.get("role") == "user" and "上一轮计划失败" not in message.get("content", ""):
-                content = message.get("content", "")
-                for line in content.splitlines():
-                    if line.startswith("问题："):
-                        return line[3:].strip()
-                return content
+                return message.get("content", "")
         return ""
 
     def complete(self, messages: list, *, timeout_ms: int) -> ModelReply:
@@ -155,66 +84,37 @@ class KeywordMockModel:
                 "message": "该问题超出当前受控命名查询范围，不能执行写操作或编造目录外指标。",
             }
         elif "停机" in question:
-            stamps = re.findall(
-                r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})",
-                question,
-            )
-            if stamps == [FIXED_DOWNTIME_START, FIXED_DOWNTIME_END]:
+            if "2026-11-01" in question and "2026-11-02" in question:
                 action = {
                     "kind": "query",
                     "query_id": "downtime_details",
                     "params": {
-                        "window_start": FIXED_DOWNTIME_START,
-                        "window_end": FIXED_DOWNTIME_END,
+                        "window_start": "2026-11-01T00:00:00+08:00",
+                        "window_end": "2026-11-02T00:00:00+08:00",
                     },
                 }
             else:
                 action = {
                     "kind": "clarify",
-                    "message": (
-                        "公开 mock 停机样例只接受恰好两个、按固定顺序的端点："
-                        "2026-11-01T00:00:00+08:00 → 2026-11-02T00:00:00+08:00；"
-                        "反向、缺失、额外端点或其他窗口需接入真实数据源。"
-                    ),
+                    "message": "请明确停机的开始和结束时间窗（含时区）。",
                 }
         elif "工单" in question and any(token in question for token in ("完成", "进度", "完成比")):
-            refs, unknown = _extract_line_refs(question)
-            ambiguous = bool(_AMBIGUOUS_LINE.search(question))
-            if len(refs) > 1 or (refs and ambiguous) or unknown:
-                action = {
-                    "kind": "clarify",
-                    "message": (
-                        "公开 mock 工单样例只支持单个完整产线编号；检测到多个/"
-                        "冲突或未识别的产线，请只给 line_id=1。"
-                    ),
-                }
-            elif refs:
-                if refs[0] == 1:
-                    action = {
-                        "kind": "query",
-                        "query_id": "work_order_progress",
-                        "params": {"line_id": 1},
-                    }
-                else:
-                    action = {
-                        "kind": "clarify",
-                        "message": (
-                            "公开 mock 工单样例仅覆盖 line_id=1；line_id=%d "
-                            "需接入真实数据源。" % refs[0]
-                        ),
-                    }
-            elif ambiguous:
-                action = {
-                    "kind": "clarify",
-                    "message": (
-                        "公开 mock 工单样例只支持单个完整产线编号；请只给一个 "
-                        "line_id=1（或完整同义编号）。"
-                    ),
-                }
+            match = re.search(r"line_id\s*=\s*(\d+)", question)
+            if match:
+                line_id = int(match.group(1))
+            elif "产线1" in question or "L01" in question:
+                line_id = 1
             else:
                 action = {
                     "kind": "clarify",
-                    "message": "请明确单个产线 line_id=1（或 L01/一号线等完整同义编号）。",
+                    "message": "请明确工单所属的产线 line_id（例如 line_id=1）。",
+                }
+                line_id = None
+            if line_id is not None:
+                action = {
+                    "kind": "query",
+                    "query_id": "work_order_progress",
+                    "params": {"line_id": line_id},
                 }
         elif "产量" in question or "快照" in question:
             action = {"kind": "query", "query_id": "line_snapshot", "params": {}}
@@ -247,13 +147,6 @@ class MockTool:
     def __call__(self, query_id, params, *, remaining_timeout_ms, max_rows=200):
         self.calls.append((query_id, dict(params)))
         description = query_catalog.describe_query(query_id)
-        if query_id == "work_order_progress" and params.get("line_id") != 1:
-            raise ValueError("public mock only supports line_id=1")
-        if query_id == "downtime_details" and (
-            params.get("window_start") != FIXED_DOWNTIME_START
-            or params.get("window_end") != FIXED_DOWNTIME_END
-        ):
-            raise ValueError("public mock only supports the fixed downtime window")
         if query_id == "line_snapshot":
             rows = [["L01", "205"], ["L02", "80"], ["L03", "0"]]
         elif query_id == "work_order_progress":

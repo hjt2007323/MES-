@@ -11,7 +11,7 @@ from mes_assistant.llm_client import ModelClientError
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKSPACE = ROOT.parents[1]
-TEST_TMP = WORKSPACE / ".test-tmp" / "ui" / "cli"
+TEST_TMP = WORKSPACE / "execution" / "A" / "A-008" / "test-tmp" / "cli"
 FIXTURES = ROOT / "fixtures" / "m2"
 
 
@@ -102,19 +102,24 @@ class QuestionCliTests(unittest.TestCase):
         self.assertEqual(code, 0)
         self.assertEqual(json.loads(out)["status"], "timeout")
 
-    def test_real_mode_is_unavailable_without_key(self):
-        code, out, err = self.run_cli(
-            [
-                "--request", str(FIXTURES / "request.json"),
-                "--mode", "real",
-                "--log", self.log("real.jsonl"),
-            ]
-        )
-        self.assertEqual(code, 2)
+    def test_real_without_config_fails_explicitly(self):
+        with mock.patch.object(
+            question_cli,
+            "build_model_config",
+            side_effect=ModelClientError("CONFIG_MISSING", "missing"),
+        ):
+            code, out, err = self.run_cli(
+                [
+                    "--request", str(FIXTURES / "request.json"),
+                    "--mode", "real",
+                    "--log", self.log("real.jsonl"),
+                ]
+            )
+        self.assertEqual(code, 3)
         self.assertEqual(out, "")
-        self.assertEqual(err, "REAL_UNAVAILABLE\n")
+        self.assertEqual(err, "EXECUTION_ERROR\n")
 
-    def test_real_mode_with_script_is_unavailable(self):
+    def test_real_rejects_script(self):
         code, out, err = self.run_cli(
             [
                 "--request", str(FIXTURES / "request.json"),
@@ -125,7 +130,7 @@ class QuestionCliTests(unittest.TestCase):
         )
         self.assertEqual(code, 2)
         self.assertEqual(out, "")
-        self.assertEqual(err, "REAL_UNAVAILABLE\n")
+        self.assertEqual(err, "INPUT_ERROR\n")
 
     def test_bad_json_duplicate_nan_and_deep_are_input_errors(self):
         bad = self.dir / "bad.json"

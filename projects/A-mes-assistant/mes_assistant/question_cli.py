@@ -136,9 +136,6 @@ def main(argv=None) -> int:
         args = _parse_args(argv)
         request = _read_json(args.request)
         service_limits, remaining = _limits_from_request(request)
-        if args.mode == "real":
-            sys.stderr.write("REAL_UNAVAILABLE\n")
-            return EXIT_INPUT
         if args.mode == "mock":
             if not args.script:
                 raise _InputError("mock mode requires --script")

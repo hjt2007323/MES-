@@ -1,0 +1,42 @@
+{
+  "contract_version": "m5-intake-live-v1",
+  "status": "pending_user_approval",
+  "run_id": "m5-pilot-001",
+  "config_id": "m5-siliconflow-qwen30-v1",
+  "provider": "siliconflow",
+  "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "dataset_sha256": "c9f4001d87a9e4b5e0a6f44aa308e4f0e84ca17041a87972bd1f646480ca84ce",
+  "inputs_path": "",
+  "input_sha256": "",
+  "case_ids": [
+    "i01",
+    "i02",
+    "i03",
+    "i04",
+    "i05",
+    "i06",
+    "i07",
+    "i08",
+    "i09",
+    "i10",
+    "i11",
+    "i12"
+  ],
+  "mode": "real",
+  "max_requests": 12,
+  "max_client_calls": 12,
+  "max_calls_per_case": 1,
+  "call_timeout_ms": 10000,
+  "max_completion_tokens_per_call": 512,
+  "max_completion_tokens_total": 6144,
+  "automatic_retries": 0,
+  "write_policy": "draft_only_no_commit",
+  "result_directory": "execution/A/A-011/experiment/m5-pilot-001",
+  "stop_on": [
+    "CONFIG_MISSING",
+    "HTTP_ERROR",
+    "NETWORK_ERROR",
+    "BUDGET_INVALID",
+    "INPUT_BINDING_FAILED"
+  ]
+}

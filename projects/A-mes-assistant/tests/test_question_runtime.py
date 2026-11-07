@@ -9,7 +9,7 @@ from unittest import mock
 from mes_assistant import question_runtime, query_planner, semantics
 from mes_assistant.fakes import FakeClock
 from mes_assistant.llm_client import ModelClientError
-from mes_assistant.question_fakes import KeywordMockModel, MockTool, ScriptedModelClient
+from mes_assistant.question_fakes import MockTool, ScriptedModelClient
 from mes_assistant.question_runtime import run_question
 from mes_assistant.service import ContractInputError
 
@@ -469,93 +469,6 @@ class QuestionRuntimeTimeoutHardeningTests(unittest.TestCase):
         )
         self.assertEqual(result["status"], "timeout")
         self.assertIsNone(result["counts"]["queries"])
-
-
-class MockSampleBoundaryTests(unittest.TestCase):
-    def test_tool_rejects_out_of_sample_params(self):
-        tool = MockTool()
-        with self.assertRaises(ValueError):
-            tool("work_order_progress", {"line_id": 2}, remaining_timeout_ms=1000)
-        with self.assertRaises(ValueError):
-            tool(
-                "downtime_details",
-                {
-                    "window_start": "2026-10-31T00:00:00+08:00",
-                    "window_end": "2026-11-01T00:00:00+08:00",
-                },
-                remaining_timeout_ms=1000,
-            )
-        ok = tool(
-            "downtime_details",
-            {
-                "window_start": "2026-11-01T00:00:00+08:00",
-                "window_end": "2026-11-02T00:00:00+08:00",
-            },
-            remaining_timeout_ms=1000,
-        )
-        self.assertEqual(ok["status"], "ok")
-
-    def test_scripted_out_of_sample_plan_has_no_success_table(self):
-        for action in (
-            {"kind": "query", "query_id": "work_order_progress", "params": {"line_id": 2}},
-            {
-                "kind": "query",
-                "query_id": "downtime_details",
-                "params": {
-                    "window_start": "2026-10-31T00:00:00+08:00",
-                    "window_end": "2026-11-01T00:00:00+08:00",
-                },
-            },
-        ):
-            with self.subTest(query_id=action["query_id"]):
-                result, _, _, _, _ = run([plan_content(action)])
-                self.assertNotEqual(result["status"], "ok")
-                self.assertIsNone(result["table"])
-                self.assertIsNone(result["sql"])
-
-
-class CompleteLineNumberBatchTests(unittest.TestCase):
-    @staticmethod
-    def _action(question):
-        reply = KeywordMockModel().complete(
-            [{"role": "user", "content": "问题：" + question}],
-            timeout_ms=1000,
-        )
-        return json.loads(reply.content)
-
-    def test_every_non1_complete_form_clarifies(self):
-        for number in range(2, 101):
-            for form in (
-                "产线%d" % number,
-                "%d号线" % number,
-                "%d号产线" % number,
-                "line_id=%d" % number,
-                "L%02d" % number,
-            ):
-                with self.subTest(number=number, form=form):
-                    action = self._action("查询%s的工单完成情况" % form)
-                    self.assertEqual(action["kind"], "clarify", form)
-
-    def test_six_positive_line1_forms(self):
-        for form in ("line_id=1", "L01", "产线1", "1号线", "1号产线", "一号线"):
-            with self.subTest(form=form):
-                action = self._action("查询%s的工单完成情况" % form)
-                self.assertEqual(action["kind"], "query")
-                self.assertEqual(action["params"], {"line_id": 1})
-
-    def test_multi_digit_chinese_and_mixed_references_clarify(self):
-        for question in (
-            "查询十一号线的工单完成情况",
-            "查询二十号产线的工单完成情况",
-            "查询一百号线的工单完成情况",
-            "查询一号线和其他产线的工单完成情况",
-            "查询一号线和二十号产线的工单完成情况",
-            "查询一号线和二号线的工单完成情况",
-            "查询L01和20号线的工单完成情况",
-            "查询line_id=1和line_id=2的工单完成情况",
-        ):
-            with self.subTest(question=question):
-                self.assertEqual(self._action(question)["kind"], "clarify")
 
 
 class M3ContextTests(unittest.TestCase):

@@ -1,0 +1,132 @@
+{
+  "contract_version": "m5-intake-live-v1",
+  "run_id": "m5-pilot-001",
+  "state": "real_batch_completed",
+  "quality_status": "changes_requested",
+  "source": "http_model",
+  "dataset_sha256": "c9f4001d87a9e4b5e0a6f44aa308e4f0e84ca17041a87972bd1f646480ca84ce",
+  "input_sha256": "369e5dc872532bc3b8b66d6fa675ac9e45c5d59aae7b4bc7e26087edf935890e",
+  "coverage": {
+    "observed": 12,
+    "planned": 12,
+    "rate": 1.0
+  },
+  "case_pass": 9,
+  "case_total": 12,
+  "main_state_pass": 11,
+  "record_exact": 6,
+  "record_denominator": 6,
+  "field_exact": 30,
+  "field_denominator": 30,
+  "evidence_valid": 30,
+  "evidence_denominator": 30,
+  "error_ready": 1,
+  "error_ready_denominator": 6,
+  "error_ready_ids": [
+    "i09"
+  ],
+  "safety_gate": false,
+  "client_calls": 12,
+  "usage": {
+    "prompt_tokens": 3695,
+    "completion_tokens": 1120,
+    "total_tokens": 4815
+  },
+  "certification": "certified",
+  "badcases": [
+    {
+      "case_id": "i07",
+      "expected_state": "needs_clarification",
+      "expected_issue": "MISSING_END_TIME",
+      "actual_state": "needs_clarification",
+      "actual_issues": [
+        "AMBIGUOUS_CONTEXT"
+      ],
+      "reason_code": "issue_mismatch",
+      "actual_record": {
+        "end_time": null,
+        "machine_no": null,
+        "order_id": null,
+        "reason": null,
+        "start_time": null
+      },
+      "run": {
+        "execution_source": "http_model",
+        "client_calls": 1,
+        "usage": {
+          "completion_tokens": 14,
+          "prompt_tokens": 294,
+          "total_tokens": 308
+        },
+        "error_code": null
+      }
+    },
+    {
+      "case_id": "i08",
+      "expected_state": "needs_clarification",
+      "expected_issue": "MISSING_MACHINE_NO",
+      "actual_state": "needs_clarification",
+      "actual_issues": [
+        "MULTIPLE_EVENTS"
+      ],
+      "reason_code": "issue_mismatch",
+      "actual_record": {
+        "end_time": null,
+        "machine_no": null,
+        "order_id": null,
+        "reason": null,
+        "start_time": null
+      },
+      "run": {
+        "execution_source": "http_model",
+        "client_calls": 1,
+        "usage": {
+          "completion_tokens": 12,
+          "prompt_tokens": 300,
+          "total_tokens": 312
+        },
+        "error_code": null
+      }
+    },
+    {
+      "case_id": "i09",
+      "expected_state": "needs_clarification",
+      "expected_issue": "MULTIPLE_EVENTS",
+      "actual_state": "ready",
+      "actual_issues": [],
+      "reason_code": "state_mismatch",
+      "actual_record": {
+        "end_time": "2026-11-04T08:10:00+08:00",
+        "machine_no": "M01",
+        "order_id": null,
+        "reason": "故障",
+        "start_time": "2026-11-04T08:00:00+08:00"
+      },
+      "run": {
+        "execution_source": "http_model",
+        "client_calls": 1,
+        "usage": {
+          "completion_tokens": 119,
+          "prompt_tokens": 312,
+          "total_tokens": 431
+        },
+        "error_code": null
+      }
+    }
+  ],
+  "limits": [
+    "Original pilot artifacts are internal read-only; no rerun or extra model calls.",
+    "A offline guard/protocol fix verified by C judge; revised real retest not executed.",
+    "test_double/scripted results are not real model quality."
+  ],
+  "revision": {
+    "state": "a_offline_verified_real_retest_not_run",
+    "a_ready_sha256": "ee5f399bc0ee4cdedb9be8fb2884f20542276e7b785cdea045714e1e0d429e10",
+    "i07": "pass",
+    "i08": "pass",
+    "i09": "pass",
+    "i09_client_calls": 0,
+    "confirm_guard": "A evidence commit=0/new rows=0",
+    "real_retest": "not_run"
+  }
+}

@@ -1,0 +1,378 @@
+{
+  "contract_version": "m5-intake-live-v1",
+  "dataset_sha256": "c9f4001d87a9e4b5e0a6f44aa308e4f0e84ca17041a87972bd1f646480ca84ce",
+  "input_sha256": "369e5dc872532bc3b8b66d6fa675ac9e45c5d59aae7b4bc7e26087edf935890e",
+  "state": "pilot_001_and_002_completed",
+  "quality_status": "changes_requested",
+  "rule": {
+    "mode": "rule",
+    "source": "rule_template",
+    "state": "complete",
+    "coverage": {
+      "observed": 12,
+      "planned": 12,
+      "rate": 1.0
+    },
+    "case_pass": 2,
+    "case_total": 12,
+    "record_exact": 2,
+    "record_denominator": 6,
+    "field_exact": 10,
+    "field_denominator": 30,
+    "evidence_valid": 10,
+    "evidence_denominator": 30,
+    "error_ready": 0,
+    "error_ready_denominator": 6,
+    "rates": {
+      "case_pass": 0.166667,
+      "record_exact": 0.333333,
+      "field_exact": 0.333333,
+      "evidence_valid": 0.333333,
+      "error_ready": 0.0
+    },
+    "badcases": [
+      {
+        "case_id": "i03",
+        "expected_state": "ready",
+        "actual_state": "abstain",
+        "verdict": "abstain",
+        "reason_code": "abstain_unsupported_template",
+        "fields": {},
+        "evidence_errors": []
+      },
+      {
+        "case_id": "i04",
+        "expected_state": "ready",
+        "actual_state": "abstain",
+        "verdict": "abstain",
+        "reason_code": "abstain_unsupported_template",
+        "fields": {},
+        "evidence_errors": []
+      },
+      {
+        "case_id": "i05",
+        "expected_state": "ready",
+        "actual_state": "abstain",
+        "verdict": "abstain",
+        "reason_code": "abstain_unsupported_template",
+        "fields": {},
+        "evidence_errors": []
+      },
+      {
+        "case_id": "i06",
+        "expected_state": "ready",
+        "actual_state": "abstain",
+        "verdict": "abstain",
+        "reason_code": "abstain_unsupported_template",
+        "fields": {},
+        "evidence_errors": []
+      },
+      {
+        "case_id": "i07",
+        "expected_state": "needs_clarification",
+        "actual_state": "abstain",
+        "verdict": "abstain",
+        "reason_code": "abstain_unsupported_template",
+        "fields": {},
+        "evidence_errors": []
+      },
+      {
+        "case_id": "i08",
+        "expected_state": "needs_clarification",
+        "actual_state": "abstain",
+        "verdict": "abstain",
+        "reason_code": "abstain_unsupported_template",
+        "fields": {},
+        "evidence_errors": []
+      },
+      {
+        "case_id": "i09",
+        "expected_state": "needs_clarification",
+        "actual_state": "abstain",
+        "verdict": "abstain",
+        "reason_code": "abstain_unsupported_template",
+        "fields": {},
+        "evidence_errors": []
+      },
+      {
+        "case_id": "i10",
+        "expected_state": "needs_clarification",
+        "actual_state": "abstain",
+        "verdict": "abstain",
+        "reason_code": "abstain_unsupported_template",
+        "fields": {},
+        "evidence_errors": []
+      },
+      {
+        "case_id": "i11",
+        "expected_state": "refused",
+        "actual_state": "abstain",
+        "verdict": "abstain",
+        "reason_code": "abstain_unsupported_template",
+        "fields": {},
+        "evidence_errors": []
+      },
+      {
+        "case_id": "i12",
+        "expected_state": "refused",
+        "actual_state": "abstain",
+        "verdict": "abstain",
+        "reason_code": "abstain_unsupported_template",
+        "fields": {},
+        "evidence_errors": []
+      }
+    ],
+    "evidence_invalid": [],
+    "test_double": false,
+    "real_quality": false
+  },
+  "scripted": {
+    "mode": "script",
+    "source": "scripted_oracle",
+    "state": "complete",
+    "coverage": {
+      "observed": 12,
+      "planned": 12,
+      "rate": 1.0
+    },
+    "case_pass": 12,
+    "case_total": 12,
+    "record_exact": 6,
+    "record_denominator": 6,
+    "field_exact": 30,
+    "field_denominator": 30,
+    "evidence_valid": 30,
+    "evidence_denominator": 30,
+    "error_ready": 0,
+    "error_ready_denominator": 6,
+    "rates": {
+      "case_pass": 1.0,
+      "record_exact": 1.0,
+      "field_exact": 1.0,
+      "evidence_valid": 1.0,
+      "error_ready": 0.0
+    },
+    "badcases": [],
+    "evidence_invalid": [],
+    "test_double": false,
+    "real_quality": false
+  },
+  "real": {
+    "contract_version": "m5-intake-live-v1",
+    "run_id": "m5-pilot-001",
+    "state": "real_batch_completed",
+    "quality_status": "changes_requested",
+    "source": "http_model",
+    "dataset_sha256": "c9f4001d87a9e4b5e0a6f44aa308e4f0e84ca17041a87972bd1f646480ca84ce",
+    "input_sha256": "369e5dc872532bc3b8b66d6fa675ac9e45c5d59aae7b4bc7e26087edf935890e",
+    "coverage": {
+      "observed": 12,
+      "planned": 12,
+      "rate": 1.0
+    },
+    "case_pass": 9,
+    "case_total": 12,
+    "main_state_pass": 11,
+    "record_exact": 6,
+    "record_denominator": 6,
+    "field_exact": 30,
+    "field_denominator": 30,
+    "evidence_valid": 30,
+    "evidence_denominator": 30,
+    "error_ready": 1,
+    "error_ready_denominator": 6,
+    "error_ready_ids": [
+      "i09"
+    ],
+    "safety_gate": false,
+    "client_calls": 12,
+    "usage": {
+      "prompt_tokens": 3695,
+      "completion_tokens": 1120,
+      "total_tokens": 4815
+    },
+    "certification": "certified",
+    "badcases": [
+      {
+        "case_id": "i07",
+        "expected_state": "needs_clarification",
+        "expected_issue": "MISSING_END_TIME",
+        "actual_state": "needs_clarification",
+        "actual_issues": [
+          "AMBIGUOUS_CONTEXT"
+        ],
+        "reason_code": "issue_mismatch",
+        "actual_record": {
+          "end_time": null,
+          "machine_no": null,
+          "order_id": null,
+          "reason": null,
+          "start_time": null
+        },
+        "run": {
+          "execution_source": "http_model",
+          "client_calls": 1,
+          "usage": {
+            "completion_tokens": 14,
+            "prompt_tokens": 294,
+            "total_tokens": 308
+          },
+          "error_code": null
+        }
+      },
+      {
+        "case_id": "i08",
+        "expected_state": "needs_clarification",
+        "expected_issue": "MISSING_MACHINE_NO",
+        "actual_state": "needs_clarification",
+        "actual_issues": [
+          "MULTIPLE_EVENTS"
+        ],
+        "reason_code": "issue_mismatch",
+        "actual_record": {
+          "end_time": null,
+          "machine_no": null,
+          "order_id": null,
+          "reason": null,
+          "start_time": null
+        },
+        "run": {
+          "execution_source": "http_model",
+          "client_calls": 1,
+          "usage": {
+            "completion_tokens": 12,
+            "prompt_tokens": 300,
+            "total_tokens": 312
+          },
+          "error_code": null
+        }
+      },
+      {
+        "case_id": "i09",
+        "expected_state": "needs_clarification",
+        "expected_issue": "MULTIPLE_EVENTS",
+        "actual_state": "ready",
+        "actual_issues": [],
+        "reason_code": "state_mismatch",
+        "actual_record": {
+          "end_time": "2026-11-04T08:10:00+08:00",
+          "machine_no": "M01",
+          "order_id": null,
+          "reason": "故障",
+          "start_time": "2026-11-04T08:00:00+08:00"
+        },
+        "run": {
+          "execution_source": "http_model",
+          "client_calls": 1,
+          "usage": {
+            "completion_tokens": 119,
+            "prompt_tokens": 312,
+            "total_tokens": 431
+          },
+          "error_code": null
+        }
+      }
+    ],
+    "limits": [
+      "Original pilot artifacts are internal read-only; no rerun or extra model calls.",
+      "A offline revision is not yet delivered; revised real retest not executed.",
+      "test_double/scripted results are not real model quality."
+    ]
+  },
+  "revision": {
+    "state": "a0_offline_verified_real_retest_not_run",
+    "a_ready": "execution/A/A-011/revisions/pilot-fix-v1.0/interface-ready.json",
+    "a_ready_sha256": "d016d604e205cf78eeeb57c67d08bc74d5f8bdf1691adaffd3c97973d4901e61",
+    "c_verification": "execution/C/C-010/revisions/pilot-fix-v1.0/a-offline-verification.json",
+    "checks": {
+      "i07": "pass",
+      "i08": "pass",
+      "i09": "pass",
+      "i09_client_calls": 0,
+      "confirm_guard": "A evidence commit=0/new rows=0",
+      "normal_regression": "A evidence 105 tests pass",
+      "same_device_two_events": "pass; guard 0 calls",
+      "ambiguous_device_repeat": "pass; MISSING_MACHINE_NO nonterminal"
+    },
+    "real_retest": "not_run"
+  },
+  "public_cli_check": {
+    "path": "projects/C-eval-toolkit/tools/check_intake_public_cli.py",
+    "command": "python -B tools/check_intake_public_cli.py",
+    "state": "offline_checked",
+    "covers": [
+      "fixture export 12 no answers",
+      "pending_live/rates null/real_quality false",
+      "test_double 12/6/30/30/0/real_quality false"
+    ]
+  },
+  "tests": {
+    "intake_total": 24,
+    "live_layer": 16,
+    "public_closure_live": 16
+  },
+  "limits": [
+    "001: 9/12 strict, error-ready 1/6.",
+    "002: 11/12 strict, error-ready 0/6, i07 issue mismatch; 11 HTTP + 1 verified guard.",
+    "002 is extraction only, not v2 workspace real routing/query quality.",
+    "A offline fixes verified; revised real retest not_run."
+  ],
+  "pilot_002": {
+    "contract_version": "m5-intake-live-v1",
+    "run_id": "m5-pilot-002",
+    "state": "real_batch_completed",
+    "quality_status": "changes_requested",
+    "source": "http_model",
+    "dataset_sha256": "c9f4001d87a9e4b5e0a6f44aa308e4f0e84ca17041a87972bd1f646480ca84ce",
+    "input_sha256": "369e5dc872532bc3b8b66d6fa675ac9e45c5d59aae7b4bc7e26087edf935890e",
+    "parent_budget_sha256": "7a42c64df858d1d737bfc19a584ede8dc3914cd43edd49e8070084cc669c7059",
+    "child_budget_sha256": "b0bdc678115a3c2705aec4ac027bc99836a6f194d628ac5f0177a6d8c6204981",
+    "results_sha256": "d86e5f46cb0cf7287c787c2e2b4f7b29bfd67c59846201f510c6435c56e6ebea",
+    "ledger_sha256": "f788bc1ba05193424a9a103fc41537c4614e0dece05a11da08111debcbfe03c7",
+    "coverage": {
+      "observed": 12,
+      "planned": 12,
+      "rate": 1.0
+    },
+    "case_pass": 11,
+    "case_total": 12,
+    "main_state_pass": 12,
+    "record_exact": 6,
+    "record_denominator": 6,
+    "field_exact": 30,
+    "field_denominator": 30,
+    "evidence_valid": 30,
+    "evidence_denominator": 30,
+    "error_ready": 0,
+    "error_ready_denominator": 6,
+    "safety_gate": true,
+    "client_calls": 11,
+    "http_model_calls": 11,
+    "program_guard_cases": [
+      "i09"
+    ],
+    "usage": {
+      "prompt_tokens": 4615,
+      "completion_tokens": 1080,
+      "total_tokens": 5695
+    },
+    "certification": "certified",
+    "real_quality": true,
+    "badcases": [
+      {
+        "case_id": "i07",
+        "expected_state": "needs_clarification",
+        "actual_state": "needs_clarification",
+        "verdict": "fail",
+        "reason_code": "issue_mismatch",
+        "fields": {},
+        "evidence_errors": []
+      }
+    ],
+    "limits": [
+      "i07 issue mismatch retained; no rescore/answer edit.",
+      "Only 11 HTTP model calls; i09 is a verified pre-model guard, not a model call.",
+      "v2 workspace real routing quality not verified by this batch."
+    ]
+  }
+}

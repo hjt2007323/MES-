@@ -1,0 +1,7 @@
+{
+  "fixture_id": "a010-independent-offline-demo",
+  "scope": "synthetic_offline_only",
+  "reference_time": "2026-11-04T12:00:00+08:00",
+  "text": "machine_no=M02；start_time=2026-11-04T09:00:00+08:00；end_time=2026-11-04T09:12:00+08:00；reason=换型；order_id=WO03",
+  "note": "独立预置演示，不复用 C 的 12 条冻结题库答案。"
+}

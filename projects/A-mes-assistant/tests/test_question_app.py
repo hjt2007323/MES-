@@ -11,7 +11,7 @@ from mes_assistant.llm_client import ModelClientError
 
 APP_PATH = Path(__file__).resolve().parents[1] / "app.py"
 WORKSPACE = APP_PATH.parents[2]
-TEST_LOG = WORKSPACE / ".test-tmp" / "ui" / "question-ui-events.jsonl"
+TEST_LOG = WORKSPACE / "execution" / "A" / "A-008" / "test-tmp" / "question-ui-events.jsonl"
 TEST_LOG.parent.mkdir(parents=True, exist_ok=True)
 if TEST_LOG.exists():
     TEST_LOG.unlink()
@@ -132,11 +132,8 @@ class QuestionAppTests(unittest.TestCase):
     def test_load_is_offline_and_no_query(self):
         self.assertEqual(len(self.at.exception), 0)
         self.assertEqual(self.fake.calls, [])
-        self.assertEqual(len(self.at.radio), 0)
+        self.assertEqual(self.at.radio[0].value, "自然语言问答")
         self.assertTrue(any("输入中文问题" in item.value for item in self.at.info))
-        markdown = " ".join(item.value for item in self.at.markdown)
-        self.assertIn("仅自然语言问答", markdown)
-        self.assertIn("real、独立命名查询和真实数据库不在本公开候选", markdown)
 
     def test_mock_success(self):
         self.submit()
@@ -178,7 +175,7 @@ class QuestionAppTests(unittest.TestCase):
 
     def test_error_does_not_claim_real_success(self):
         self.fake.status = "error"
-        self.fake.mode = "mock"
+        self.fake.mode = "real"
         self.fake.answer = "失败"
         self.fake.error = {
             "code": "MODEL_FAILED",
@@ -191,56 +188,30 @@ class QuestionAppTests(unittest.TestCase):
         self.assertEqual(len(self.at.error), 1)
         self.assertEqual(len(self.at.dataframe), 0)
         captions = " ".join(item.value for item in self.at.caption)
-        self.assertIn("离线 mock", captions)
+        self.assertIn("请求配置 mode=real", captions)
         self.assertNotIn("本次来自真实", captions)
 
-    def test_public_real_and_named_entries_are_absent(self):
-        self.assertEqual(len(self.at.radio), 0)
-        self.assertEqual(len(self.at.selectbox), 0)
+    def test_named_query_entry_is_preserved(self):
+        self.at.radio[0].set_value("命名查询").run(timeout=20)
+        self.assertEqual(len(self.at.exception), 0)
         self.assertEqual(len(self.at.form_submit_button), 1)
-        self.assertFalse(any("命名查询" in item.value for item in self.at.subheader))
-        markdown = " ".join(item.value for item in self.at.markdown)
-        self.assertIn("real、独立命名查询和真实数据库不在本公开候选", markdown)
+        self.assertTrue(any("命名查询" in item.value for item in self.at.subheader))
 
-
-class RealMockAppTests(unittest.TestCase):
-    def _submit(self, question):
-        with mock.patch.object(ui_presenter, "open_log_sink", open_test_log):
-            at = AppTest.from_file(str(APP_PATH))
-            at.run(timeout=20)
-            at.text_area[0].set_value(question)
-            at.form_submit_button[0].click()
-            at.run(timeout=20)
-        return at
-
-    def test_real_mock_clarifies_out_of_sample_inputs(self):
-        for question in (
-            "查询产线10的工单完成情况",
-            "查询11号线的工单完成情况",
-            "查询20号产线的工单完成情况",
-            "查看 line_id=1 和 line_id=2 的工单完成情况",
-            "查询L01和20号线的工单完成情况",
-            "查询一号线和其他产线的工单完成情况",
-            "列出2026-11-02T00:00:00+08:00至2026-11-01T00:00:00+08:00相交的设备停机原始明细",
-            "列出2026-11-01T00:00:00+08:00至2026-11-01T12:00:00+08:00至2026-11-02T00:00:00+08:00相交的设备停机原始明细",
-            "列出2026-10-31T00:00:00+08:00至2026-11-01T00:00:00+08:00相交的设备停机原始明细",
+    def test_real_config_missing_is_explicit(self):
+        self.at.radio[1].set_value("real")
+        with mock.patch.object(
+            ui_presenter,
+            "real_question",
+            side_effect=ModelClientError("CONFIG_MISSING", "missing"),
         ):
-            with self.subTest(question=question):
-                at = self._submit(question)
-                self.assertEqual(len(at.exception), 0)
-                self.assertEqual(len(at.warning), 1)
-                self.assertEqual(len(at.dataframe), 0)
-
-    def test_real_mock_positive_line1_and_fixed_window(self):
-        for question in (
-            "列出 line_id=1 的工单数量完成比",
-            "列出2026-11-01T00:00:00+08:00至2026-11-02T00:00:00+08:00相交的设备停机原始明细",
-        ):
-            with self.subTest(question=question):
-                at = self._submit(question)
-                self.assertEqual(len(at.exception), 0)
-                self.assertEqual(len(at.warning), 0)
-                self.assertEqual(len(at.dataframe), 1)
+            self.at.form_submit_button[0].click()
+            self.at.run(timeout=20)
+        self.assertEqual(len(self.at.exception), 0)
+        self.assertEqual(len(self.at.error), 1)
+        self.assertIn("MODEL_CONFIG_MISSING", self.at.error[0].value)
+        captions = " ".join(item.value for item in self.at.caption)
+        self.assertIn("请求配置 mode=real", captions)
+        self.assertNotIn("本次来自真实", captions)
 
 
 if __name__ == "__main__":
